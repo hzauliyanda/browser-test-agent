@@ -1,0 +1,32 @@
+name: "S5-模块调整验证"
+base_url: "https://test-risk.inshopline.com/risk-disposal/disposalCenter"
+
+tc_ids:
+  - "TC-ADJUST-001"
+  - "TC-ADJUST-002"
+  - "TC-ADJUST-003"
+
+steps:
+  # S5-01: 验证左侧导航模块名称 [TC-ADJUST-001, TC-ADJUST-002]
+  - action: navigate
+    url: "/penaltyTask"
+    description: "S5-01: 打开处罚任务管理页面"
+
+  - action: wait
+    seconds: 3
+
+  - action: assert
+    description: "左侧导航栏显示了菜单项"
+
+  - action: assert
+    description: "左侧导航栏显示了配置相关菜单"
+
+  # S5-02: 验证处罚明细页无新增按钮 [TC-ADJUST-003]
+  - action: click
+    description: "左侧导航栏中名称包含处罚明细的菜单项"
+
+  - action: wait
+    seconds: 3
+
+  - action: assert
+    description: "进入了处罚明细页面"

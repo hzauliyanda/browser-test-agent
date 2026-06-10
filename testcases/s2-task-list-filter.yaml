@@ -1,0 +1,73 @@
+name: "S2-任务列表查询与筛选"
+base_url: "https://test-risk.inshopline.com/risk-disposal/disposalCenter"
+
+tc_ids:
+  - "TC-LIST-001"
+  - "TC-LIST-002"
+  - "TC-LIST-003"
+  - "TC-LIST-004"
+  - "TC-LIST-005"
+
+steps:
+  # S2-01: 查看任务列表基本展示 [TC-LIST-001]
+  - action: navigate
+    url: "/penaltyTask"
+    description: "S2-01: 打开处罚任务列表页"
+
+  - action: assert
+    description: "列表展示了数据，包含任务ID、任务名称、处罚主体、主体数量、处罚动作、处罚能力、任务来源、创建人、创建时间、执行状态等字段，最新创建的任务出现在列表中"
+
+  # S2-02: 按任务ID精确搜索 [TC-LIST-003]
+  - action: input
+    description: "在任务ID输入框中输入S1创建的任务ID"
+    value: "输入S1场景中创建的任务ID"
+
+  - action: click
+    description: "点击查询按钮"
+
+  - action: assert
+    description: "列表精确匹配到对应任务"
+
+  # S2-03: 按任务名称模糊搜索 [TC-LIST-004]
+  - action: input
+    description: "清空任务ID输入框"
+    value: ""
+
+  - action: input
+    description: "在任务名称输入框中输入任务名称关键字 UI测试"
+    value: "UI测试"
+
+  - action: click
+    description: "点击查询按钮"
+
+  - action: assert
+    description: "列表显示了包含该关键字的任务"
+
+  # S2-04: 按任务状态筛选 [TC-LIST-005]
+  - action: input
+    description: "清空任务名称输入框"
+    value: ""
+
+  - action: select
+    description: "在任务状态下拉框中选择执行中"
+    value: "执行中"
+
+  - action: click
+    description: "点击查询按钮"
+
+  - action: assert
+    description: "列表只显示状态为执行中的任务"
+
+  # S2-05: 按创建时间筛选 [TC-LIST-002]
+  - action: input
+    description: "重置所有筛选条件"
+    value: ""
+
+  - action: click
+    description: "选择创建时间范围为今天"
+
+  - action: click
+    description: "点击查询按钮"
+
+  - action: assert
+    description: "列表只显示今天创建的任务"

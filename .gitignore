@@ -1,0 +1,25 @@
+# Secrets
+.env
+.env.*
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Node
+node_modules/
+
+# Browser / runtime data
+.browser-data/
+midscene_run/
+output/
+*.log
+
+# Caches
+.locator-cache.json
+
+# IDE / OS
+.idea/
+.DS_Store

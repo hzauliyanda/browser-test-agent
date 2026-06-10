@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: browser-test-agent
+Version: 0.1.0
+Summary: AI驱动的浏览器自动化测试Agent，用YAML/JSON描述测试用例，Browser Use执行
+Requires-Python: >=3.11
+Requires-Dist: browser-use>=0.2.0
+Requires-Dist: litellm>=1.0.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: python-dotenv>=1.0.0

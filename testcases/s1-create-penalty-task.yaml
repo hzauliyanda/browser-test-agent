@@ -1,0 +1,92 @@
+name: "S1-处罚任务创建全流程"
+base_url: "https://test-risk.inshopline.com/risk-disposal/disposalCenter"
+
+tc_ids:
+  - "TC-SUBMIT-001"
+  - "TC-SUBMIT-003"
+  - "TC-SUBMIT-004"
+  - "TC-SUBMIT-007"
+  - "TC-FIELD-001"
+  - "TC-FIELD-002"
+  - "TC-FIELD-003"
+  - "TC-ADJUST-004"
+
+steps:
+  # S1-01: 打开处罚任务列表页 [TC-SUBMIT-001]
+  - action: navigate
+    url: "/penaltyTask"
+    description: "S1-01: 打开处罚任务列表页"
+
+  - action: wait
+    seconds: 3
+
+  - action: assert
+    description: "页面正常加载，显示了任务列表"
+
+  # S1-02: 打开新增处罚表单 [TC-SUBMIT-007, TC-FIELD-001, TC-FIELD-002, TC-FIELD-003, TC-ADJUST-004]
+  - action: click
+    description: "点击新增处罚按钮"
+
+  - action: assert
+    description: "新增处罚表单已打开"
+
+  # S1-03: 必填字段校验 [TC-SUBMIT-007]
+  - action: click
+    description: "直接点击提交按钮"
+
+  - action: assert
+    description: "页面显示了必填字段的错误提示"
+
+  # S1-04: 填写处罚任务信息并提交 [TC-SUBMIT-001]
+  - action: input
+    description: "在任务名称输入框中输入 UI测试-处罚任务-20260605"
+    value: "UI测试-处罚任务-20260605"
+
+  - action: select
+    description: "选择执行类型"
+    value: "立即执行"
+
+  - action: select
+    description: "选择执行主体"
+    value: "商品资源"
+
+  - action: input
+    description: "在备注说明输入框中输入备注内容"
+    value: "UI自动化测试创建的处罚任务"
+
+  - action: select
+    description: "选择处罚模版"
+    value: "商品冻结"
+
+  - action: input
+    description: "在主体信息文本框中输入有效的处罚主体值"
+    value: "1001\n1002\n1003"
+
+  - action: wait
+    seconds: 1
+
+  - action: click
+    description: "提交按钮"
+
+  - action: assert
+    description: "页面弹出了确认弹窗"
+
+  # S1-05: 确认处罚下发 [TC-SUBMIT-001]
+  - action: assert
+    description: "确认弹窗展示了基本信息"
+
+  - action: click
+    description: "点击确认按钮"
+
+  - action: assert
+    description: "弹窗切换为执行结果反馈"
+
+  # S1-06: 查看执行结果 [TC-SUBMIT-001, TC-SUBMIT-003, TC-SUBMIT-004]
+  - action: assert
+    description: "结果弹窗展示了执行结果数据"
+
+  - action: click
+    description: "点击确认按钮关闭结果弹窗"
+
+  - action: assert
+    description: "弹窗已关闭，返回列表页"

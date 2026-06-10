@@ -1,0 +1,18 @@
+name: "百度搜索测试"
+base_url: "https://www.baidu.com"
+steps:
+  - action: navigate
+    url: "/"
+
+  - action: input
+    description: "搜索输入框"
+    value: "哈哈哈"
+
+  - action: click
+    description: "百度一下按钮"
+
+  - action: assert
+    description: "搜索结果页面应该显示搜索结果列表"
+
+  - action: click
+    description: "第一个搜索结果"

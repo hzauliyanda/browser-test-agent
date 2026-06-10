@@ -1,0 +1,64 @@
+[
+{
+"step": "打开网页 https://test-risk.inshopline.com/risk-support/captcha/security-center-test",
+"target": "https://test-risk.inshopline.com/risk-support/captcha/security-center-test",
+"type": "browser"
+},
+{
+"step": "等待页面加载完成，并断言进入OA登录页面",
+"target": "OA登录页面元素可见",
+"type": "wait"
+},
+{
+"input": "${TEST_USERNAME}",
+"step": "在登录页的【用户名】输入框中输入用户名",
+"target": "登录页的【用户名】输入框",
+"type": "input"
+},
+{
+"input": "${TEST_PASSWORD}",
+"step": "在登录页的【密码】输入框中输入密码",
+"target": "登录页的【密码】输入框",
+"type": "input"
+},
+{
+"step": "点击登录页的【登录】按钮",
+"target": "登录页的【登录】按钮",
+"type": "smartTapFunction"
+},
+{
+"step": "等待页面加载完成，确认登录成功并看到顶部导航栏的【安全中心】标签",
+"target": "顶部导航栏的【安全中心】标签可见",
+"type": "wait"
+},
+{
+"step": "在【安全中心】页面，定位对应安全邮箱的【更换】按钮，点击打开更换安全邮箱弹窗",
+"target": "【安全中心】页面中对应安全邮箱的【更换】按钮",
+"type": "smartTapFunction"
+},
+{
+"step": "在安全邮箱弹窗中，点击【获取验证码】按钮",
+"target": "安全邮箱弹窗中的【获取验证码】按钮",
+"type": "smartTapFunction"
+},
+{
+"step": "等待并确认出现提示“验证码已发送”",
+"target": "弹窗区域可见文本“验证码已发送”",
+"type": "wait"
+},
+{
+"step": "在同一弹窗中，点击链接文本【未收到验证码？】",
+"target": "弹窗区域内的链接文本【未收到验证码？】",
+"type": "smartTapFunction"
+},
+{
+"step": "等待页面跳转，展示相应帮助文档",
+"target": "展示相应帮助文档",
+"type": "wait"
+},
+{
+"step": "断言系统已跳转至“未收到验证码FAQ”页面，并展示帮助文档内容",
+"target": "页面内容是否符合“未收到验证码FAQ”页面的要求，且可见帮助文档内容",
+"type": "assert"
+}
+]

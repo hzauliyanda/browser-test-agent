@@ -1,0 +1,22 @@
+{
+  "name": "browser-test-agent",
+  "version": "0.2.0",
+  "type": "module",
+  "description": "AI驱动的浏览器自动化测试，YAML描述用例，Midscene.js+Playwright执行",
+  "scripts": {
+    "run": "npx tsx runner/index.ts",
+    "test": "npx playwright test"
+  },
+  "dependencies": {
+    "@midscene/web": "^1.5.2",
+    "@playwright/test": "^1.58.1",
+    "dotenv": "^17.2.4",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.0.0"
+  }
+}

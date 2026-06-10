@@ -1,0 +1,81 @@
+[
+{
+"step": "打开网页 https://test-risk.inshopline.com/risk-support/captcha/security-center-test",
+"target": "https://test-risk.inshopline.com/risk-support/captcha/security-center-test",
+"type": "browser"
+},
+{
+"input": "${TEST_USERNAME}",
+"step": "在账号输入框中输入用户名",
+"target": "账号输入框",
+"type": "input"
+},
+{
+"input": "${TEST_PASSWORD}",
+"step": "在密码输入框中输入密码",
+"target": "密码输入框",
+"type": "input"
+},
+{
+"step": "点击登录按钮",
+"target": "登录按钮",
+"type": "smartTapFunction"
+},
+{
+"step": "等待页面加载完成，确认页面标题包含 “安全中心”",
+"target": "页面标题包含 “安全中心”",
+"type": "wait"
+},
+{
+"step": "点击“安全设置管理” 模块卡片",
+"target": "页面中定位的“安全设置管理” 模块卡片",
+"type": "smartTapFunction"
+},
+{
+"step": "点击安全邮箱卡片内的“更换”按钮",
+"target": "安全邮箱卡片内的“更换”按钮",
+"type": "smartTapFunction"
+},
+{
+"step": "点击更换邮箱对话框中的“获取验证码”按钮",
+"target": "弹出的更换邮箱对话框中的“获取验证码”按钮",
+"type": "smartTapFunction"
+},
+{
+"input": "123456",
+"step": "在旧邮箱验证码输入框中输入 123456",
+"target": "旧邮箱验证码输入框",
+"type": "input"
+},
+{
+"step": "点击“验证”按钮完成旧邮箱验证码验证",
+"target": "旧邮箱验证码输入框旁边的“验证”按钮",
+"type": "smartTapFunction"
+},
+{
+"step": "等待新邮箱输入区域出现，确认出现“新邮箱”输入框和对应的“获取验证码”按钮",
+"target": "新邮箱输入区域，确认“新邮箱”输入框和对应的“获取验证码”按钮可见",
+"type": "wait"
+},
+{
+"input": "invalid-email",
+"step": "在“新邮箱”输入框中输入 invalid-email",
+"target": "“新邮箱”输入框",
+"type": "input"
+},
+{
+"step": "点击新邮箱输入区域的“获取验证码”按钮",
+"target": "新邮箱输入区域的“获取验证码”按钮",
+"type": "smartTapFunction"
+},
+{
+"step": "等待弹出提示框，确认提示框文字为 “邮箱无效”",
+"target": "页面弹出提示框，确认提示框文字为 “邮箱无效”",
+"type": "wait"
+},
+{
+"step": "确认页面未出现验证码倒计时显示，且“获取验证码”按钮仍保持可点击状态（未被禁用）",
+"target": "页面未出现验证码倒计时显示，且“获取验证码”按钮仍保持可点击状态（未被禁用）",
+"type": "assert"
+}
+]

@@ -1,0 +1,26 @@
+llm:
+  provider: "openai-compatible"
+  model: "openai/gpt-5.5"
+  api_base: "https://api.freemodel.dev/v1"
+  temperature: 1
+
+browser:
+  headless: false                # 是否无头模式
+  viewport:
+    width: 1440
+    height: 900
+  record_video: true             # 是否录制视频
+
+retry:
+  max_attempts: 2                # 每步失败后重试次数（input/select/assert 自愈兜底）
+
+timeout:
+  login: 240                     # 登录超时（秒）；走 SSO 重定向时需放宽，默认 240
+
+cache:
+  enabled: true                   # 是否启用 Locator 缓存（回归测试推荐开启）
+  file: ".locator-cache.json"    # 缓存文件路径
+
+learning:
+  enabled: true                   # 是否启用自愈学习（推荐开启）
+  auto_update: true               # 是否自动更新 YAML 文件（谨慎使用）

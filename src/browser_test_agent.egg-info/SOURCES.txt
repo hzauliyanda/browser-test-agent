@@ -1,0 +1,12 @@
+pyproject.toml
+src/__init__.py
+src/loader.py
+src/main.py
+src/recorder.py
+src/reporter.py
+src/runner.py
+src/browser_test_agent.egg-info/PKG-INFO
+src/browser_test_agent.egg-info/SOURCES.txt
+src/browser_test_agent.egg-info/dependency_links.txt
+src/browser_test_agent.egg-info/requires.txt
+src/browser_test_agent.egg-info/top_level.txt

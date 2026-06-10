@@ -1,0 +1,53 @@
+name: "风控处罚中心 - 处罚任务管理 UI 测试套件"
+base_url: "https://test-risk.inshopline.com/risk-disposal/disposalCenter"
+
+# 登录配置 - runner 会在执行所有用例前先登录一次
+login:
+  enabled: true
+  url: "https://test-risk.inshopline.com/risk-disposal/disposalCenter/penaltyTask"
+  steps:
+    - action: wait
+      seconds: 3
+    - action: input
+      description: "用户名输入框"
+      value: "${TEST_USERNAME}"
+    - action: wait
+      seconds: 1
+    - action: input
+      description: "密码输入框"
+      value: "${TEST_PASSWORD}"
+    - action: wait
+      seconds: 1
+    - action: click
+      description: "登录按钮"
+    - action: wait
+      seconds: 8
+    - action: assert
+      description: "页面已离开登录页，不再显示登录表单"
+
+# 测试用例列表 - 按执行顺序排列
+cases:
+  - file: s1-create-penalty-task.yaml
+    name: "S1: 处罚任务创建全流程"
+    depends_on: []
+    tc_ids: [TC-SUBMIT-001, TC-SUBMIT-003, TC-SUBMIT-004, TC-SUBMIT-007, TC-FIELD-001, TC-FIELD-002, TC-FIELD-003, TC-ADJUST-004]
+
+  - file: s2-task-list-filter.yaml
+    name: "S2: 任务列表查询与筛选"
+    depends_on: ["S1"]
+    tc_ids: [TC-LIST-001, TC-LIST-002, TC-LIST-003, TC-LIST-004, TC-LIST-005]
+
+  - file: s3-task-detail-view.yaml
+    name: "S3: 任务详情查看"
+    depends_on: ["S1"]
+    tc_ids: [TC-DETAIL-001, TC-DETAIL-002, TC-DETAIL-003, TC-DETAIL-004]
+
+  - file: s4-data-export.yaml
+    name: "S4: 明细数据导出"
+    depends_on: ["S3"]
+    tc_ids: [TC-EXPORT-001, TC-EXPORT-002]
+
+  - file: s5-module-adjustment.yaml
+    name: "S5: 模块调整验证"
+    depends_on: []
+    tc_ids: [TC-ADJUST-001, TC-ADJUST-002, TC-ADJUST-003]

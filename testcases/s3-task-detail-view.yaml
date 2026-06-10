@@ -1,0 +1,36 @@
+name: "S3-任务详情查看"
+base_url: "https://test-risk.inshopline.com/risk-disposal/disposalCenter"
+
+tc_ids:
+  - "TC-DETAIL-001"
+  - "TC-DETAIL-002"
+  - "TC-DETAIL-003"
+  - "TC-DETAIL-004"
+
+steps:
+  # S3-01: 进入任务详情 [TC-DETAIL-001]
+  - action: navigate
+    url: "/penaltyTask"
+    description: "S3-01: 打开处罚任务列表页"
+
+  - action: click
+    description: "在任务列表中找到S1创建的任务，点击查看详情"
+
+  - action: assert
+    description: "页面跳转到任务详情页，基本信息区域展示了任务名称、任务状态、处罚动作、处罚模版、任务来源、创建人、创建时间等字段"
+
+  # S3-02: 查看处罚明细统计 [TC-DETAIL-002]
+  - action: assert
+    description: "处罚明细统计区域展示了处罚事件总数和各状态的数量统计"
+
+  # S3-03: 查看处罚明细列表 [TC-DETAIL-003]
+  - action: assert
+    description: "处罚明细列表展示了数据，包含事件ID、处罚主体、处罚动作、处罚能力等字段"
+
+  # S3-04: 明细列表筛选 [TC-DETAIL-004]
+  - action: select
+    description: "在明细列表中按处罚状态筛选"
+    value: "处罚中"
+
+  - action: assert
+    description: "列表根据筛选条件刷新了数据"

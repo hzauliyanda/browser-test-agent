@@ -1,0 +1,11 @@
+[project]
+name = "browser-test-agent"
+version = "0.1.0"
+description = "AI驱动的浏览器自动化测试Agent，用YAML/JSON描述测试用例，Browser Use执行"
+requires-python = ">=3.11"
+dependencies = [
+    "browser-use>=0.2.0",
+    "litellm>=1.0.0",
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0.0",
+]

@@ -1,0 +1,34 @@
+name: "S4-明细数据导出"
+base_url: "https://test-risk.inshopline.com/risk-disposal/disposalCenter"
+
+tc_ids:
+  - "TC-EXPORT-001"
+  - "TC-EXPORT-002"
+
+steps:
+  # S4-01: 导出全部处罚明细 [TC-EXPORT-001]
+  - action: navigate
+    url: "/penaltyTask"
+    description: "S4-01: 打开处罚任务列表页"
+
+  - action: click
+    description: "在任务列表中找到S1创建的任务，点击进入任务详情页"
+
+  - action: assert
+    description: "进入任务详情页，处罚明细列表中有数据"
+
+  - action: click
+    description: "点击导出按钮，选择导出全部"
+
+  - action: assert
+    description: "系统提示导出成功或开始下载"
+
+  # S4-02: 导出选中处罚明细 [TC-EXPORT-002]
+  - action: click
+    description: "在明细列表中勾选若干条记录"
+
+  - action: click
+    description: "点击导出按钮，选择导出当前选中"
+
+  - action: assert
+    description: "系统提示导出选中数据成功或开始下载"
